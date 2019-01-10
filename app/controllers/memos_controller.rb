@@ -1,11 +1,16 @@
 class MemosController < ApplicationController
   before_action :set_memo, only: [:show, :edit, :update, :destroy]
 
+  before_action :authenticate_user!, only: [:index, :show, :new,
+     :create, :edit, :destroy, :update, :photo]
+
   # GET /memos
   # GET /memos.json
   def index
     @memos = Memo.all
+
   end
+
 
   # GET /memos/1
   # GET /memos/1.json
